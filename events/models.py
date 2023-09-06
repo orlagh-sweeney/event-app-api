@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from categories.models import Category
 
 
 class Event(models.Model):
@@ -18,11 +19,12 @@ class Event(models.Model):
         upload_to='images/', default='../default_event_image_senyfs',
         blank=True
     )
-    # type = models.ForeignKey(
-    #     Cateogry,
-    #     on_delete=models.CASCADE,
-    #     related_name="event_category"
-    # )
+    type = models.ForeignKey(
+        Category,
+        on_delete=models.CASCADE,
+        related_name="event_category",
+        default=None
+    )
 
     class Meta:
         ordering = ['-created_at']
