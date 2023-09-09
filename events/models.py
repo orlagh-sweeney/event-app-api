@@ -19,12 +19,7 @@ class Event(models.Model):
         upload_to='images/', default='../default_event_image_senyfs',
         blank=True
     )
-    type = models.ForeignKey(
-        Category,
-        on_delete=models.CASCADE,
-        related_name="event_category",
-        default=None
-    )
+    type = models.CharField(max_length=30, choices=Category.CATEGORIES)
 
     class Meta:
         ordering = ['-created_at']

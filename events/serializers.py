@@ -1,6 +1,5 @@
 from rest_framework import serializers
 from .models import Event
-# from categories.models import Category
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -8,7 +7,6 @@ class EventSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
-    # type = serializers.ChoiceField(choices=Category.CATEGORIES)
 
     # valiate image sizes
     def validate_image(self, value):
@@ -33,6 +31,5 @@ class EventSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'title', 'date',
             'time', 'location', 'content', 'image', 'is_owner', 'profile_id',
-            'profile_image', 
-            # 'type',
+            'profile_image', 'type',
         ]
