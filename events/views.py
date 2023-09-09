@@ -26,6 +26,8 @@ class EventList(generics.ListCreateAPIView):
         'attendees__owner__profile',
         # events a user has created
         'owner__profile',
+        # filter events by type
+        'type',
     ]
     search_fields = [
         'owner__username',
