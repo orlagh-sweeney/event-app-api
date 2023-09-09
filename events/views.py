@@ -1,4 +1,5 @@
-from rest_framework import generics, permissions
+from django.db.models import Count
+from rest_framework import generics, permissions, filters
 from .models import Event
 from .serializers import EventSerializer
 from drf_event_api.permissions import IsOwnerOrReadOnly
@@ -8,7 +9,17 @@ class EventList(generics.ListCreateAPIView):
     """
     List events or create an event if a user is logged in
     """
-    queryset = Event.objects.all()
+    queryset = Event.objects.annotate(
+        attending_count=Count('attendees', distinct=True),
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')
+    filter_backends = [
+        filters.OrderingFilter
+    ]
+    ordering_fields = [
+        'attending_count',
+        'comments_count',
+    ]
     serializer_class = EventSerializer
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
