@@ -10,7 +10,9 @@ class EventList(generics.ListCreateAPIView):
     List events or create an event if a user is logged in
     """
     queryset = Event.objects.annotate(
+        # how many users are attending an event
         attending_count=Count('attendees', distinct=True),
+        # how many comments on an event
         comments_count=Count('comment', distinct=True)
     ).order_by('-created_at')
     filter_backends = [
@@ -19,6 +21,7 @@ class EventList(generics.ListCreateAPIView):
     ordering_fields = [
         'attending_count',
         'comments_count',
+        'attendees__created_at',
     ]
     serializer_class = EventSerializer
     permission_classes = [
@@ -35,6 +38,11 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     Retrieve an event
     Update or delete an event if the user is the event owner
     """
-    queryset = Event.objects.all()
+    queryset = Event.objects.annotate(
+        # how many users are attending an event
+        attending_count=Count('attendees', distinct=True),
+        # how many comments on an event
+        comments_count=Count('comment', distinct=True)
+    ).order_by('-created_at')
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = EventSerializer
