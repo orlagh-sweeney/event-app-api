@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Event
+from attendees.models import Attendee
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -7,6 +8,7 @@ class EventSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     profile_id = serializers.ReadOnlyField(source='owner.profile.id')
     profile_image = serializers.ReadOnlyField(source='owner.profile.image.url')
+    attending_id = serializers.SerializerMethodField()
 
     # valiate image sizes
     def validate_image(self, value):
@@ -26,10 +28,20 @@ class EventSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
+    # check if a user is attending an event
+    def get_attending_id(self, obj):
+        user = self.context['request'].user
+        if user.is_authenticated:
+            attending = Attendee.objects.filter(
+                owner=user, event=obj
+            ).first()
+            return attending.id if attending else None
+        return None
+
     class Meta:
         model = Event
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'title', 'date',
             'time', 'location', 'content', 'image', 'is_owner', 'profile_id',
-            'profile_image', 'type',
+            'profile_image', 'type', 'attending_id',
         ]
