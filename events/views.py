@@ -15,7 +15,7 @@ class EventList(generics.ListCreateAPIView):
         attending_count=Count('attendees', distinct=True),
         # how many comments on an event
         comments_count=Count('comment', distinct=True)
-    ).order_by('-created_at')
+    ).order_by('-date')
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
