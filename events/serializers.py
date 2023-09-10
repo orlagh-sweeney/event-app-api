@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Event
 from attendees.models import Attendee
+from datetime import date
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -11,6 +12,7 @@ class EventSerializer(serializers.ModelSerializer):
     attending_id = serializers.SerializerMethodField()
     attending_count = serializers.ReadOnlyField()
     comments_count = serializers.ReadOnlyField()
+    is_live = serializers.SerializerMethodField()
 
     # valiate image sizes
     def validate_image(self, value):
@@ -40,11 +42,16 @@ class EventSerializer(serializers.ModelSerializer):
             return attending.id if attending else None
         return None
 
+    # check if an event is live
+    def get_is_live(self, obj):
+        today = date.today()
+        return obj.date > today
+
     class Meta:
         model = Event
         fields = [
             'id', 'owner', 'created_at', 'updated_at', 'title', 'date',
             'time', 'location', 'content', 'image', 'is_owner', 'profile_id',
             'profile_image', 'type', 'attending_id', 'attending_count',
-            'comments_count',
+            'comments_count', 'is_live'
         ]
