@@ -25,7 +25,10 @@ class ProfileSerializer(serializers.ModelSerializer):
                 user_interests[owner] = [i.type]
             else:
                 user_interests[owner] = user_interests[owner] + [i.type]
-        return user_interests[str(obj.owner)]
+        if str(obj.owner) not in user_interests:
+            return None
+        else:
+            return user_interests[str(obj.owner)]
 
     class Meta:
         model = Profile
