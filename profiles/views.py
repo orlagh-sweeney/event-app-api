@@ -23,7 +23,7 @@ class ProfileList(generics.ListAPIView):
         # how many event a user is attending (future)
         attending_count=Count(
             'owner__attendee',
-            filter=Q(owner__attendee__event__date__gt=today),
+            filter=Q(owner__attendee__event__date__gte=today),
             distinct=True),
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
