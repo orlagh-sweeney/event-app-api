@@ -66,7 +66,7 @@ DEBUG = 'DEV' in os.environ
 ALLOWED_HOSTS = [
     '8000-orlaghsween-eventappapi-qhdoqsl0zju.ws-eu104.gitpod.io',
     'localhost',
-    'drf-event-api-8dabfe6ebdec.herokuapp.com'
+    'https://drf-event-api-8dabfe6ebdec.herokuapp.com/'
 ]
 
 
