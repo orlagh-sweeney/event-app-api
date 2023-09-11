@@ -1,9 +1,12 @@
-from django.db.models import Count
+from django.db.models import Count, Q
 from rest_framework import generics, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Event
 from .serializers import EventSerializer
 from drf_event_api.permissions import IsOwnerOrReadOnly
+from datetime import date
+
+today = date.today()
 
 
 class EventList(generics.ListCreateAPIView):
@@ -15,7 +18,7 @@ class EventList(generics.ListCreateAPIView):
         attending_count=Count('attendees', distinct=True),
         # how many comments on an event
         comments_count=Count('comment', distinct=True)
-    ).order_by('date')
+    ).order_by('date').filter(Q(date__gte=today))
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
