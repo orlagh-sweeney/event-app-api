@@ -100,9 +100,10 @@ TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 ---------- | -------- | ----------------------- | --------- |
 List Events | /events/ GET  | Returns a list of events |
 Create Event | /events/ POST | Authenticated users can create event objects. Unauthenticated users cannot. | 
-Retrieve Event | profiles/int:pk/ GET | Returns a single event objectbased on the id provided.  | 
-Update Event | profiles/int:pk/ PUT | Only the event owner can edit an event object. |
-Delete Event | profiles/int:pk/ DELETE | Only the event owner can edit delete an event object. |
+Retrieve Event | /events/int:pk/ GET | Returns a single event objectbased on the id provided.  | 
+Update Event | /events/int:pk/ PUT | Only the event owner can edit an event object. |
+Delete Event | /events/int:pk/ DELETE | Only the event owner can edit delete an event object. |
+Invalid PK | /events/int:pk/ GET | If the event id is invalid a 404 error is returned |
 
 
 #### Attendee App
@@ -125,6 +126,7 @@ TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 List Comments | /comments/ GET  | Returns a list of comments |
 Create Comment | /comments/ POST | Authenticated users can add comment objects. Unauthenticated users cannot. | 
 Retrieve Comment | /comments/int:pk/ GET | Returns a single comment object based on the id provided. | 
+Edit Comment | /comments/int:pk/ PUT | Only the comment owner can edit a comment object. | 
 Delete Commnet | /comments/int:pk/ DELETE | Only the comment owner can edit a comment object. |
 
 #### Like App

@@ -58,4 +58,4 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
             distinct=True),
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated, IsOwnerOrReadOnly]
