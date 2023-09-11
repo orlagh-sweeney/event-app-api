@@ -45,7 +45,7 @@ class EventSerializer(serializers.ModelSerializer):
     # check if an event is live
     def get_is_live(self, obj):
         today = date.today()
-        return obj.date > today
+        return obj.date >= today
 
     class Meta:
         model = Event
