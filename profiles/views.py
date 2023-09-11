@@ -1,8 +1,8 @@
 from django.db.models import Count, Q
-from rest_framework import generics, filters
+from rest_framework import generics, filters, permissions
 from .models import Profile
 from .serializers import ProfileSerializer
-from drf_event_api.permissions import IsOwnerOrReadOnly, IsAuthenticatedOrIsOwner
+from drf_event_api.permissions import IsOwnerOrReadOnly
 from datetime import date
 
 today = date.today()
@@ -27,6 +27,7 @@ class ProfileList(generics.ListAPIView):
             distinct=True),
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
+    permission_classes = [permissions.IsAuthenticated]
     filter_backends = [
         filters.OrderingFilter
     ]
@@ -57,4 +58,4 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
             distinct=True),
     ).order_by('-created_at')
     serializer_class = ProfileSerializer
-    permission_classes = [IsAuthenticatedOrIsOwner]
+    permission_classes = [permissions.IsAuthenticated]
