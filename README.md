@@ -94,6 +94,7 @@ TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 List profiles | profiles/ GET  | Returns a list of profiles |
 Retrieve Profile | profiles/int:pk/ GET | Returns a single profile based on the id provided. Only authenticated users can view a profile by id | 
 Update Profile | profiles/int:pk/ PUT | Only the profile owner can edit their profile. |
+Cascasde | n/a | If a profile is deleted an associated events, attendees, comments, like and interests are also deleted |
 
 #### Event App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
@@ -104,7 +105,7 @@ Retrieve Event | /events/int:pk/ GET | Returns a single event objectbased on the
 Update Event | /events/int:pk/ PUT | Only the event owner can edit an event object. |
 Delete Event | /events/int:pk/ DELETE | Only the event owner can edit delete an event object. |
 Invalid PK | /events/int:pk/ GET | If the event id is invalid a 404 error is returned |
-
+Cascasde | n/a | If an event is deleted an associated attendees and commnets are also deleted |
 
 #### Attendee App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
@@ -128,6 +129,7 @@ Create Comment | /comments/ POST | Authenticated users can add comment objects. 
 Retrieve Comment | /comments/int:pk/ GET | Returns a single comment object based on the id provided. | 
 Edit Comment | /comments/int:pk/ PUT | Only the comment owner can edit a comment object. | 
 Delete Commnet | /comments/int:pk/ DELETE | Only the comment owner can edit a comment object. |
+Cascade | n/a | If a comment is deleted any associated likes are also deleted |
 
 #### Like App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
