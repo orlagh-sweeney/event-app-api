@@ -1,15 +1,14 @@
 # The Big Review
 This project is a REST API for an event app.<br>
-The API has been built using Django REST Framework and forms the back-end of XX, an event planning application.<br>
+The API has been built using Django REST Framework and forms the back-end of [Connect Event App](https://github.com/orlagh-sweeney/connect-event-app), an event planning application.<br>
 This project has been developed as my 5th Portfolio Project for my Diploma in Full Stack Software Development with Code Institute where I have undertaken a specialization in Advanced Frontend. 
 
 ## Table of Contents
 1. [Project Goal](#project-goals)
 2. [Planning](#planning)
+    - [User Stories](#user-stories)
     - [Methodology](#methodology)
-    - [Models](#models)
-3. [Features](#features)
-
+3. [Models](#models)
 4. [Technololgies Used](#technologies-used)
     - [Languages](#languages)
     - [Frameworks, Libraries and Programmes](#frameworks-libraries-and-programmes)
@@ -17,21 +16,42 @@ This project has been developed as my 5th Portfolio Project for my Diploma in Fu
     - [Testing User Stories](#testing-user-stories)
     - [Code Validation](#code-validation)
     - [Automated Tests](#automated-tests)
-    - [Feature Testing](#manual-feature-testing)
+    - [Manual Testing](#manual-testing)
     - [Bugs](#bugs)
 6. [Deployment](#deployment)
 7. [Credit](#credit)
-    - [Content](#content)
-    - [Media](#media)
     - [Code](#code)
 8. [Acknowledgements](#acknowledgements)
 
 ## Project Goals
-
+- Build a REST API using Django Rest Framework to be consumed by Connect Event App.
+- Implement full CRUD functionality so users can modify data in the API.
+- Implement authentification layers so data can only be modified by intended users/owners. 
 
 ## Planning
+### User Stories
+1. As a developer I want the functionality to to create, retrieve and update profile resources so that users can view and edit their own profiles.
+2. As a developer I want the functionality to get, create, update, edit and delete event resources so that users interact with event data.
+3. As a developer I want the functionality to get, create, and delete attending resources so that users can modify if they are attending an event or not.
+4. As a developer I want the functionality to get, create, update, edit and delete comments so that users can modify comment data.
+5. As a developer I want the functionality to get, create, and delete like resources so that users can like comments and interact with the like data
+6. As a developer I want the functionality to store categories so that I can use categories in the Event and User Interest apps.
+7. As a developer I want the functionality to store user interests so that I can customize their experience. 
+8. As a developer I want the functionality to filter data so that I can customize the users experience. 
+
 ### Methodology
-### Models
+The project was planned and implemented following agile methodology principles. GitHub Projects was used to manage and document this process.
+
+The GitHub project can be viewed here: [Event App API User Stories](https://github.com/users/orlagh-sweeney/projects/4)
+
+User Stories contained a list of Acceptance Criteria and Tasks to support the development of the project.
+Following MoSCoW Priortisation principles, each User Story was assigned a tag from one of the following:
+- Must Have
+- Should Have
+- Could Have
+- Won't Have
+
+## Models
 This project uses 7 models:
 1. Profile model:
     - This has a one-to-one relationship with the Django User Model.
@@ -61,9 +81,6 @@ This project uses 7 models:
 
 The below entity relationship diagram was created using [dbdigram](https://dbdiagram.io/home) and demonstrates the relationship between the models.
 
-## Features
-
-
 ## Technologies Used
 ### Languages
 - Python
@@ -84,9 +101,42 @@ A complete list of packages and dependencies can be viewed in the requirements.t
 
 ## Testing
 ### Testing User Stories
+1. As a developer I want the functionality to to create, retrieve and update profile resources so that users can view and edit their own profiles.
+    - The API has a profiles app.
+    - Profile owners can edit their profiles.
+    - Authenticated users can view profiles. 
+2. As a developer I want the functionality to to get, create, update, edit and delete event resources so that users interact with event data.
+    - The API has an events app. 
+    - This app provides functionality for users to create, edit, update and delete their own events. 
+    - Any user can view events. 
+3. As a developer I want the functionality to to get, create, and delete attending resources so that users can modify if they are attending an event or not.
+    - The API has an attendes app. 
+    - This app provides functionality for authenticated users to create and delte attending resources.  
+4. As a developer I want the functionality to to get, create, update, edit and delete comments so that users can modify comment data.
+    - The API has an comments app. 
+    - This app provides functionality for users to create, edit, update and delete their own comments on an event. 
+    - Any user can view comments.
+5. As a developer I want the functionality to to get, create, and delete like resources so that users can like comments and interact with the like data.
+    - The API has an likes app. 
+    - This app provides functionality for authenticated users to create and delete like resources for a comment.  
+6. As a developer I want the functionality to store categories so that I can use categories in the Event and User Interest apps.
+    - The API has an categories App.
+    - The categories can be retrieved in the Event and User Interests apps. 
+7. As a developer I want the functionality to store user interests so that I can customize their experience. 
+    - The API has ann interest App.
+    - The app stores interests for a particular user. 
+    - Interests can be created and delete by authenticated users. 
+8. As a developer I want the functionality to filter data so that I can customize the users experience. 
+    - The API has a search function where users can search events by keyword.
+    - Events can be filtered based on event type.
+    - Events can also be filtered by events a user is attending or that a user has created. 
+
 ### Code Validation
+The following validators were used to test the code:
+- [pycodestlye](https://pypi.org/project/pycodestyle/): No errors were reported when passing the final python code through the validator.  <br>
+
 ### Automated Tests
-### Manual Feature Testing
+### Manual Testing
 The following manual tests were carried out:
 #### Profiles App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
@@ -152,9 +202,8 @@ Delete Interest | /interests/int:pk/ DELETE | Only the interest owner can delete
 ## Deployment
 
 ## Credit
-### Content
-### Media
 ### Code
 
 ## Acknowledgements
-
+- Thank you to my mentor Marcel for his feedback and suggestions at each stage of the project.
+- Thank you to Code Institute for providing me with the tools and skills to complete this project
