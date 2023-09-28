@@ -66,7 +66,7 @@ DEBUG = 'DEV' in os.environ
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
-    '8000-orlaghsween-eventappapi-qhdoqsl0zju.ws-eu104.gitpod.io',
+    '8000-orlaghsween-eventappapi-qhdoqsl0zju.ws-eu105.gitpod.io',
     'localhost',
 ]
 
