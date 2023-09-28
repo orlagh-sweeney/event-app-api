@@ -148,7 +148,7 @@ Cascasde | n/a | If a profile is deleted any associated events, attendees, comme
 #### Event App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 ---------- | -------- | ----------------------- | --------- |
-List Events | /events/ GET  | Returns a list of events |
+List Events | /events/ GET  | Returns a list of events | PASS
 Create Event | /events/ POST | Authenticated users can create event objects. Unauthenticated users cannot. | PASS
 Retrieve Event | /events/int:pk/ GET | Returns a single event objectbased on the id provided. | PASS
 Update Event | /events/int:pk/ PUT | Only the event owner can edit an event object. | PASS
