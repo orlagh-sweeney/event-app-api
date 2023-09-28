@@ -15,7 +15,6 @@ This project has been developed as my 5th Portfolio Project for my Diploma in Fu
 5. [Testing](#testing)
     - [Testing User Stories](#testing-user-stories)
     - [Code Validation](#code-validation)
-    - [Automated Tests](#automated-tests)
     - [Manual Testing](#manual-testing)
     - [Bugs](#bugs)
 6. [Deployment](#deployment)
@@ -135,67 +134,66 @@ A complete list of packages and dependencies can be viewed in the requirements.t
 The following validators were used to test the code:
 - [pycodestlye](https://pypi.org/project/pycodestyle/): No errors were reported when passing the final python code through the validator.  <br>
 
-### Automated Tests
 ### Manual Testing
 The following manual tests were carried out:
 #### Profiles App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 ---------- | -------- | ----------------------- | --------- |
-List profiles | profiles/ GET  | Returns a list of profiles |
-Retrieve Profile | profiles/int:pk/ GET | Returns a single profile based on the id provided. Only authenticated users can view a profile by id | 
-Update Profile | profiles/int:pk/ PUT | Only the profile owner can edit their profile. |
-Cascasde | n/a | If a profile is deleted an associated events, attendees, comments, like and interests are also deleted |
+List profiles | profiles/ GET  | Returns a list of profiles | PASS
+Retrieve Profile | profiles/int:pk/ GET | Returns a single profile based on the id provided. Only authenticated users can view a profile by id | PASS
+Update Profile | profiles/int:pk/ PUT | Only the profile owner can edit their profile. | PASS 
+Cascasde | n/a | If a profile is deleted any associated events, attendees, comments, like and interests are also deleted | PASS
 
 #### Event App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 ---------- | -------- | ----------------------- | --------- |
 List Events | /events/ GET  | Returns a list of events |
-Create Event | /events/ POST | Authenticated users can create event objects. Unauthenticated users cannot. | 
-Retrieve Event | /events/int:pk/ GET | Returns a single event objectbased on the id provided.  | 
-Update Event | /events/int:pk/ PUT | Only the event owner can edit an event object. |
-Delete Event | /events/int:pk/ DELETE | Only the event owner can edit delete an event object. |
-Invalid PK | /events/int:pk/ GET | If the event id is invalid a 404 error is returned |
-Cascasde | n/a | If an event is deleted an associated attendees and commnets are also deleted |
+Create Event | /events/ POST | Authenticated users can create event objects. Unauthenticated users cannot. | PASS
+Retrieve Event | /events/int:pk/ GET | Returns a single event objectbased on the id provided. | PASS
+Update Event | /events/int:pk/ PUT | Only the event owner can edit an event object. | PASS
+Delete Event | /events/int:pk/ DELETE | Only the event owner can edit delete an event object. | PASS
+Invalid PK | /events/int:pk/ GET | If the event id is invalid a 404 error is returned | PASS
+Cascasde | n/a | If an event is deleted any associated attendees and commnets are also deleted | PASS
 
 #### Attendee App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 ---------- | -------- | ----------------------- | --------- |
-List Attendees | /attendees/ GET  | Returns a list of attendeess |
-Create Attendee | /attendees/ POST | Authenticated users can create an attendee object. Unauthenticated users cannot. | 
-Retrieve Attendee | /attendees/int:pk/ GET | Returns a single attendee object based on the id provided. | 
-Delete Attendee | /attendees/int:pk/ DELETE | Only the attendee object owner can delete an attendee object. |
+List Attendees | /attendees/ GET  | Returns a list of attendeess | PASS
+Create Attendee | /attendees/ POST | Authenticated users can create an attendee object. Unauthenticated users cannot. | PASS
+Retrieve Attendee | /attendees/int:pk/ GET | Returns a single attendee object based on the id provided. | PASS
+Delete Attendee | /attendees/int:pk/ DELETE | Only the attendee object owner can delete an attendee object. | PASS
 
 #### Categories App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 ---------- | -------- | ----------------------- | --------- |
-Store categories | n/a  | Categories are stored in list. |
-Access categories | n/a  | Categories can be accessed by other apps. | 
+Store categories | n/a  | Categories are stored in list. | PASS
+Access categories | n/a  | Categories can be accessed by other apps. | PASS
 
 #### Comment App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 ---------- | -------- | ----------------------- | --------- |
-List Comments | /comments/ GET  | Returns a list of comments |
-Create Comment | /comments/ POST | Authenticated users can add comment objects. Unauthenticated users cannot. | 
-Retrieve Comment | /comments/int:pk/ GET | Returns a single comment object based on the id provided. | 
-Edit Comment | /comments/int:pk/ PUT | Only the comment owner can edit a comment object. | 
-Delete Commnet | /comments/int:pk/ DELETE | Only the comment owner can edit a comment object. |
-Cascade | n/a | If a comment is deleted any associated likes are also deleted |
+List Comments | /comments/ GET  | Returns a list of comments | PASS
+Create Comment | /comments/ POST | Authenticated users can add comment objects. Unauthenticated users cannot. | PASS
+Retrieve Comment | /comments/int:pk/ GET | Returns a single comment object based on the id provided. | PASS
+Edit Comment | /comments/int:pk/ PUT | Only the comment owner can edit a comment object. | PASS
+Delete Commnet | /comments/int:pk/ DELETE | Only the comment owner can edit a comment object. | PASS
+Cascade | n/a | If a comment is deleted any associated likes are also deleted | PASS
 
 #### Like App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 ---------- | -------- | ----------------------- | --------- |
-List Likes | /likes/ GET  | Returns a list of likes |
-Create Like | /likes/ POST | Authenticated users can add like objects. Unauthenticated users cannot. | 
-Retrieve Like | /likes/int:pk/ GET | Returns a single like object based on the id provided. | 
-Delete Like | /likes/int:pk/ DELETE | Only the like owner can delete a like object. |
+List Likes | /likes/ GET  | Returns a list of likes | PASS
+Create Like | /likes/ POST | Authenticated users can add like objects. Unauthenticated users cannot. | PASS
+Retrieve Like | /likes/int:pk/ GET | Returns a single like object based on the id provided. | PASS
+Delete Like | /likes/int:pk/ DELETE | Only the like owner can delete a like object. | PASS
 
 #### Interest App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 ---------- | -------- | ----------------------- | --------- |
-List Interests | /interests/ GET  | Returns a list of interests |
-Create Interest | /interests/ POST | Authenticated users can create interest objects. Unauthenticated users cannot. | 
-Retrieve Interest | /interests/int:pk/ GET | Returns a single interest object based on the id provided. | 
-Delete Interest | /interests/int:pk/ DELETE | Only the interest owner can delete an interest object. |
+List Interests | /interests/ GET  | Returns a list of interests | PASS
+Create Interest | /interests/ POST | Authenticated users can create interest objects. Unauthenticated users cannot. | PASS
+Retrieve Interest | /interests/int:pk/ GET | Returns a single interest object based on the id provided. | PASS
+Delete Interest | /interests/int:pk/ DELETE | Only the interest owner can delete an interest object. | PASS
 
 ### Bugs
 
