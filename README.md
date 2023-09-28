@@ -85,7 +85,7 @@ The below entity relationship diagram was created using [dbdigram](https://dbdia
 ### Languages
 - Python
 
-### Frameworks, Libraries and Programmes- [Balsamiq](https://balsamiq.com/): this was used to create wireframes in the planning stage of the project. 
+### Frameworks, Libraries and Programmes
 - [Django](https://www.djangoproject.com/): this was the MVC web framework used.
 - [Django REST Framework](https://www.django-rest-framework.org/): this was used as the framework to build the REST API.
 - [Cloudinary](https://cloudinary.com/): this was used to store static and media files.
