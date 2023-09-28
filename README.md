@@ -4,7 +4,7 @@ The API has been built using Django REST Framework and forms the back-end of [Co
 This project has been developed as my 5th Portfolio Project for my Diploma in Full Stack Software Development with Code Institute where I have undertaken a specialization in Advanced Frontend. 
 
 ## Table of Contents
-1. [Project Goal](#project-goals)
+1. [Project Goals](#project-goals)
 2. [Planning](#planning)
     - [User Stories](#user-stories)
     - [Methodology](#methodology)
@@ -41,7 +41,7 @@ This project has been developed as my 5th Portfolio Project for my Diploma in Fu
 ### Methodology
 The project was planned and implemented following agile methodology principles. GitHub Projects was used to manage and document this process.
 
-The GitHub project can be viewed here: [Event App API User Stories](https://github.com/users/orlagh-sweeney/projects/4)
+The GitHub project can be viewed here: [Event App API User Stories](https://github.com/users/orlagh-sweeney/projects/5)
 
 User Stories contained a list of Acceptance Criteria and Tasks to support the development of the project.
 Following MoSCoW Priortisation principles, each User Story was assigned a tag from one of the following:
@@ -206,9 +206,35 @@ When calculating attending count and attended count I was using greater than and
 If a user had not yet registered their interests the profiles page would not display. To fix this, in the profiles serialzier I updated get_user_interests to return None if there were no interests. 
 
 ## Deployment
+The program was developed in Gitpod. It was then commited and pushed to GitHub.
+The finished project was deployed in Heroku. 
+Deployment to Heroku was completed using the following steps: 
+1. Open and login to [Heroku](https://id.heroku.com/login).
+2. From the dashboard, click 'New', then click 'Create new app' from the dropdown menu. 
+3. Enter the App name, choose a region, then click 'Create app'.
+4. Navigate to the 'Settings' tab.
+5. Within 'Settings', navigate to 'Convig Vars'. Click 'Reveal Config Vars'.
+6. Add config vars using the following 'KEY' and 'VALUE' pairs from env.py:
+    SECRET_KEY
+    DATABASE_URL
+    CLOUDINARY_URL
+7. Add the following additional Config Vars:
+    ALLOWED_HOST: *set to deployed api URL
+    CLIENT_ORIGIN: *set to deployed front end URL
+    CLIENT_ORIGIN_DEV: *set to gitpod workspace url
+    DISABLE_COLLECT STATIC: 1
+8. Navigate to the 'Deploy' tab. 
+9. Within 'Deploy', navigate to 'Deployment method'. 
+10. Click on 'GitHub'. Navigate to 'Connect to GitHub' and click 'Connect to GitHub' 
+11. Within 'Connect to GitHub', use the search function to find the repository to be deployed. Click 'Connect'.
+12. Navigate to either 'Automatic Deploys' or 'Manual Deploys' to choose which method to deploy the application.
+13. Click on 'Enable Automatic Deploys' or 'Deploy Branch' respectively, depending on chosen method. 
+14. Once the app is finished building, a message saying 'Your app was successfully deployed' will appear.
+15. Click 'View' to see the deployed app. 
 
 ## Credit
 ### Code
+The Code Insitute Django REST Framework walkthrough project was referred to when setting up the project. Elements of Code Institute project were used and adapted to suit this project.
 
 ## Acknowledgements
 - Thank you to my mentor Marcel for his feedback and suggestions at each stage of the project.
