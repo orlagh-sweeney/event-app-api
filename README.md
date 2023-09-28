@@ -78,7 +78,8 @@ This project uses 7 models:
     - owner is a foreign key connecting to the User model.
     - type categories are retrieved from the Cateogry model.
 
-The below entity relationship diagram was created using [dbdigram](https://dbdiagram.io/home) and demonstrates the relationship between the models.
+The below entity relationship diagram was created using [dbdigram](https://dbdiagram.io/home) and demonstrates the relationship between the models. <br> 
+<image src="assets/readme/dbdiagram.png" width="600px"></image>
 
 ## Technologies Used
 ### Languages
