@@ -9,7 +9,9 @@ class Like(models.Model):
     'owner' is a User instance and 'comment' is a Comment instance.
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    comment = models.ForeignKey(Comment, related_name='likes', on_delete=models.CASCADE)
+    comment = models.ForeignKey(
+        Comment, related_name='likes', on_delete=models.CASCADE
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

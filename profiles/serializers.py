@@ -4,6 +4,10 @@ from interests.models import Interest
 
 
 class ProfileSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Profile model
+    Adds five extra fields when returning a list of Comment instances
+    """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     events_count = serializers.ReadOnlyField()

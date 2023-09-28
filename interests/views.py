@@ -6,7 +6,8 @@ from .serializers import InterestSerializer
 
 class InterestList(generics.ListCreateAPIView):
     """
-    List interests if authenticated or create an interest instance if logged in.
+    List interests if authenticated or create an
+    interest instance if logged in.
     """
     serializer_class = InterestSerializer
     # only authenticated users can create an interest instance
