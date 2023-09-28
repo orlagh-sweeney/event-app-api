@@ -196,6 +196,14 @@ Retrieve Interest | /interests/int:pk/ GET | Returns a single interest object ba
 Delete Interest | /interests/int:pk/ DELETE | Only the interest owner can delete an interest object. | PASS
 
 ### Bugs
+1. Event Field Type:
+In the Event model, the 'type' field was set as a Foreign Key relating to the Category model which did not allow the relevant choices to be added to the database. I changed the type field to a CharField and imported the Category model into the Event Model to resolve this issue.
+
+2. Attending and Attended Count:
+When calculating attending count and attended count I was using greater than and less than signs ('<' or '>') to check if date has passed or not. This is throwing an error in the code and not returning the desired output. Django documentation revealed the need to use 'lt' or 'gt' to fix this issue. 
+
+3. Profiles
+If a user had not yet registered their interests the profiles page would not display. To fix this, in the profiles serialzier I updated get_user_interests to return None if there were no interests. 
 
 ## Deployment
 
