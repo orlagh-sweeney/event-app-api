@@ -242,7 +242,7 @@ Deployment to Heroku was completed using the following steps:
 - [Django REST Framework](https://www.django-rest-framework.org/): 
     - DRF documentation was referred to throughout development to educate myself and solve issues. 
 - [Stackoverflow](https://stackoverflow.com/):
-    - To access categories from the Category model in the type field in Event and Interest models I adapted a solution by Linovia[https://stackoverflow.com/a/48090126].
+    - To access categories from the Category model in the type field in Event and Interest models I adapted a solution by [Linovia](https://stackoverflow.com/a/48090126).
 
 ### Media
 Images were sourced from the following resources:
