@@ -101,7 +101,7 @@ A complete list of packages and dependencies can be viewed in the requirements.t
 
 ## Testing
 ### Testing User Stories
-1. As a developer I want the functionality to to create, retrieve and update profile resources so that users can view and edit their own profiles.
+1. As a developer I want the functionality to create, retrieve and update profile resources so that users can view and edit their own profiles.
     - The API has a profiles app.
     - Profile owners can edit their profiles.
     - Authenticated users can view profiles. 
@@ -109,15 +109,15 @@ A complete list of packages and dependencies can be viewed in the requirements.t
     - The API has an events app. 
     - This app provides functionality for users to create, edit, update and delete their own events. 
     - Any user can view events. 
-3. As a developer I want the functionality to to get, create, and delete attending resources so that users can modify if they are attending an event or not.
+3. As a developer I want the functionality to get, create, and delete attending resources so that users can modify if they are attending an event or not.
     - The API has an attendes app. 
-    - This app provides functionality for authenticated users to create and delte attending resources.  
-4. As a developer I want the functionality to to get, create, update, edit and delete comments so that users can modify comment data.
+    - This app provides functionality for authenticated users to create and delete attending resources.  
+4. As a developer I want the functionality to get, create, update, edit and delete comments so that users can modify comment data.
     - The API has an comments app. 
     - This app provides functionality for users to create, edit, update and delete their own comments on an event. 
     - Any user can view comments.
-5. As a developer I want the functionality to to get, create, and delete like resources so that users can like comments and interact with the like data.
-    - The API has an likes app. 
+5. As a developer I want the functionality to get, create, and delete like resources so that users can like comments and interact with the like data.
+    - The API has a likes app. 
     - This app provides functionality for authenticated users to create and delete like resources for a comment.  
 6. As a developer I want the functionality to store categories so that I can use categories in the Event and User Interest apps.
     - The API has an categories App.
@@ -150,11 +150,11 @@ TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
 ---------- | -------- | ----------------------- | --------- |
 List Events | /events/ GET  | Returns a list of events | PASS
 Create Event | /events/ POST | Authenticated users can create event objects. Unauthenticated users cannot. | PASS
-Retrieve Event | /events/int:pk/ GET | Returns a single event objectbased on the id provided. | PASS
+Retrieve Event | /events/int:pk/ GET | Returns a single event object based on the id provided. | PASS
 Update Event | /events/int:pk/ PUT | Only the event owner can edit an event object. | PASS
 Delete Event | /events/int:pk/ DELETE | Only the event owner can edit delete an event object. | PASS
 Invalid PK | /events/int:pk/ GET | If the event id is invalid a 404 error is returned | PASS
-Cascasde | n/a | If an event is deleted any associated attendees and commnets are also deleted | PASS
+Cascasde | n/a | If an event is deleted any associated attendees and comments are also deleted | PASS
 
 #### Attendee App
 TEST       | ENDPOINT | DESIRED RESULT          | PASS/FAIL |
@@ -203,7 +203,7 @@ In the Event model, the 'type' field was set as a Foreign Key relating to the Ca
 2. Attending and Attended Count:
 When calculating attending count and attended count I was using greater than and less than signs ('<' or '>') to check if date has passed or not. This is throwing an error in the code and not returning the desired output. Django documentation revealed the need to use 'lt' or 'gt' to fix this issue. 
 
-3. Profiles
+3. Profiles:
 If a user had not yet registered their interests the profiles page would not display. To fix this, in the profiles serialzier I updated get_user_interests to return None if there were no interests. 
 
 ## Deployment
@@ -216,14 +216,14 @@ Deployment to Heroku was completed using the following steps:
 4. Navigate to the 'Settings' tab.
 5. Within 'Settings', navigate to 'Convig Vars'. Click 'Reveal Config Vars'.
 6. Add config vars using the following 'KEY' and 'VALUE' pairs from env.py:
-    SECRET_KEY
-    DATABASE_URL
-    CLOUDINARY_URL
+    - SECRET_KEY
+    - DATABASE_URL
+    - CLOUDINARY_URL
 7. Add the following additional Config Vars:
-    ALLOWED_HOST: *set to deployed api URL
-    CLIENT_ORIGIN: *set to deployed front end URL
-    CLIENT_ORIGIN_DEV: *set to gitpod workspace url
-    DISABLE_COLLECT STATIC: 1
+    - ALLOWED_HOST: *set to deployed api URL
+    - CLIENT_ORIGIN: *set to deployed front end URL
+    - CLIENT_ORIGIN_DEV: *set to gitpod workspace url
+    - DISABLE_COLLECT STATIC: 1
 8. Navigate to the 'Deploy' tab. 
 9. Within 'Deploy', navigate to 'Deployment method'. 
 10. Click on 'GitHub'. Navigate to 'Connect to GitHub' and click 'Connect to GitHub' 
@@ -235,7 +235,17 @@ Deployment to Heroku was completed using the following steps:
 
 ## Credit
 ### Code
-The Code Insitute Django REST Framework walkthrough project was referred to when setting up the project. Elements of Code Institute project were used and adapted to suit this project.
+- [Code Institute](https://codeinstitute.net/de/):
+    - The Code Insitute Django REST Framework walkthrough project was referred to when setting up the project. Elements of Code Institute project were used and adapted to suit this project.
+- [Django REST Framework](https://www.django-rest-framework.org/): 
+    - DRF documentation was referred to throughout development to educate myself and solve issues. 
+
+### Media
+Images were sourced from the following resources:
+- [Pixabay](https://pixabay.com/):
+    - Default user image is [blank-profile-picture-mystery-man-973460/](https://pixabay.com/vectors/blank-profile-picture-mystery-man-973460/) by [Stephaine Edwards](https://pixabay.com/users/wanderercreative-855399/)
+- [Pexals](https://www.pexels.com/):
+    - The default event image is [white-ball-838869/](https://www.pexels.com/photo/white-ball-838869/) by [Michael L.](https://www.pexels.com/@hiraeth/)
 
 ## Acknowledgements
 - Thank you to my mentor Marcel for his feedback and suggestions at each stage of the project.
