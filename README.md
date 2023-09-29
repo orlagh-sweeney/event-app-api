@@ -21,6 +21,7 @@ The deployed API can be viewed here [drf-event-api](https://drf-event-api-8dabfe
 6. [Deployment](#deployment)
 7. [Credit](#credit)
     - [Code](#code)
+    - [Media](#media)
 8. [Acknowledgements](#acknowledgements)
 
 ## Project Goals
@@ -240,6 +241,8 @@ Deployment to Heroku was completed using the following steps:
     - The Code Insitute Django REST Framework walkthrough project was referred to when setting up the project. Elements of the Code Institute project were used and adapted to suit this project.
 - [Django REST Framework](https://www.django-rest-framework.org/): 
     - DRF documentation was referred to throughout development to educate myself and solve issues. 
+- [Stackoverflow](https://stackoverflow.com/):
+    - To access categories from the Category model in the type field in Event and Interest models I adapted a solution by Linovia[https://stackoverflow.com/a/48090126].
 
 ### Media
 Images were sourced from the following resources:
