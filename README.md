@@ -1,7 +1,8 @@
 # The Big Review
 This project is a REST API for an event app.<br>
 The API has been built using Django REST Framework and forms the back-end of [Connect Event App](https://github.com/orlagh-sweeney/connect-event-app), an event planning application.<br>
-This project has been developed as my 5th Portfolio Project for my Diploma in Full Stack Software Development with Code Institute where I have undertaken a specialization in Advanced Frontend. 
+This project has been developed as my 5th Portfolio Project for my Diploma in Full Stack Software Development with Code Institute where I have undertaken a specialization in Advanced Frontend. <br>
+The deployed API can be viewed here [drf-event-api](https://drf-event-api-8dabfe6eb).
 
 ## Table of Contents
 1. [Project Goals](#project-goals)
@@ -236,7 +237,7 @@ Deployment to Heroku was completed using the following steps:
 ## Credit
 ### Code
 - [Code Institute](https://codeinstitute.net/de/):
-    - The Code Insitute Django REST Framework walkthrough project was referred to when setting up the project. Elements of Code Institute project were used and adapted to suit this project.
+    - The Code Insitute Django REST Framework walkthrough project was referred to when setting up the project. Elements of the Code Institute project were used and adapted to suit this project.
 - [Django REST Framework](https://www.django-rest-framework.org/): 
     - DRF documentation was referred to throughout development to educate myself and solve issues. 
 

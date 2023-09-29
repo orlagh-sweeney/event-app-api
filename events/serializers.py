@@ -7,7 +7,7 @@ from datetime import date
 class EventSerializer(serializers.ModelSerializer):
     """
     Serializer for the Event model
-    Adds six extra fields when returning a list of Event instances
+    Adds seven extra fields when returning a list of Event instances
     """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
